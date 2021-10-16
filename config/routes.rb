@@ -1,4 +1,3 @@
-root :to => 'pages#home'
 
 Rails.application.routes.draw do
   get 'stock_quotes/index'
