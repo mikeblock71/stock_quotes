@@ -1,2 +1,47 @@
-<h1>StockQuotes#index</h1>
-<p>Find me in app/views/stock_quotes/index.html.erb</p>
+<h1>Stock Quotes for  <%= @symbols %></h1>
+<a href="https://iexcloud.io">Data provided by IEX Cloud</a>
+
+<style>
+	table
+	{
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	td, th
+	{
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	tr:nth-child(even)
+	{
+		background-color: #dddddd;
+	}
+</style>
+
+<table>
+	<tr>
+		<th>Symbol</th>
+		<th>Company</th>
+		<th>Previous Day Close</th>
+		<th>Latest Price</th>
+		<th>Change</th>
+		<th>52 Week High</th>
+		<th>52 Week Low</th>		
+	</tr>
+
+	<% @stockArray.each do |stock| %>
+	<tr>
+		<td><%= stock['symbol'] %></td>
+		<td><%= stock['companyName'] %></td>
+		<td><%= stock['previousClose'] %></td>
+		<td><%= stock['latestPrice'] %></td>
+		<td><%= stock['change'] %></td>
+		<td><%= stock['week52High'] %></td>
+		<td><%= stock['week52Low'] %></td>		
+	</tr>
+	<% end %>
+
+
+</table>
